@@ -17,6 +17,7 @@ router.get('/', (req, res) => {
         res.status(404).json({message: "No Categories Found"})
         return;
       }
+      console.log(data)
       res.json(data)
     })
     .catch(err => {
@@ -53,10 +54,8 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new category
-  Category.update(req.body, {
-    where: {
-      id: req.params.id
-    }
+  Category.create(req.body, {
+    
   })
   .then(data => {res.json(data)
   })
